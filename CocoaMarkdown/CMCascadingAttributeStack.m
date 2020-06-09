@@ -115,6 +115,10 @@
                     if (adjustedParagraphStyle != nil) {
                         combinedAttributes[NSParagraphStyleAttributeName] = adjustedParagraphStyle;
                     }
+                    NSString* codeBlockLanguage = currentStyleAttributes.paragraphStyleAttributes[CMParagraphStyleAttributeCodeBlockLanguage];
+                    if ( codeBlockLanguage != nil) {
+                        combinedAttributes[CMParagraphStyleAttributeCodeBlockLanguage] = codeBlockLanguage;
+                    }
                 }
             }
             
@@ -307,6 +311,7 @@
            CMParagraphStyleAttributeListItemLabelIndent: ^(NSMutableParagraphStyle* paragraphStyle, id attribute){},
            CMParagraphStyleAttributeListItemBulletString: ^(NSMutableParagraphStyle* paragraphStyle, id attribute){},
            CMParagraphStyleAttributeListItemNumberFormat: ^(NSMutableParagraphStyle* paragraphStyle, id attribute){},
+           CMParagraphStyleAttributeCodeBlockLanguage: ^(NSMutableParagraphStyle* paragraphStyle, id attribute){},
         };
     });
     

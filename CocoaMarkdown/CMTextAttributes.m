@@ -156,7 +156,7 @@ static CMStyleAttributes * CMDefaultCodeBlockAttributes()
     NSDictionary* paragraphStyleAttributes = @{ CMParagraphStyleAttributeParagraphSpacingBefore: @12.0,
                                                 CMParagraphStyleAttributeFirstLineHeadExtraIndent: @(defaultIndentationStep),
                                                 CMParagraphStyleAttributeHeadExtraIndent: @(defaultIndentationStep) };
-    
+
     return [[CMStyleAttributes alloc] initWithStringAttributes:stringAttributes 
                                       paragraphStyleAttributes:paragraphStyleAttributes];
 }
@@ -439,6 +439,11 @@ static  CMStyleAttributes *  CMDefaultUnorderedSublistAttributes()
 #endif
 }
 
+- (void) addCodeBlockLanguageAttributeFor:(NSString*)language
+{
+    [_paragraphStyleAttributes setValue:language forKey:CMParagraphStyleAttributeCodeBlockLanguage];
+}
+
 @end
 
 CMParagraphStyleAttributeName const CMParagraphStyleAttributeLineSpacing = @"lineSpacing";
@@ -456,3 +461,4 @@ CMParagraphStyleAttributeName const CMParagraphStyleAttributeHyphenationFactor =
 CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemLabelIndent = @"listItemLabelIndent";
 CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemBulletString = @"listItemBulletString";
 CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemNumberFormat = @"listItemNumberFormat";
+CMParagraphStyleAttributeName const CMParagraphStyleAttributeCodeBlockLanguage = @"codeBlockLanguage";

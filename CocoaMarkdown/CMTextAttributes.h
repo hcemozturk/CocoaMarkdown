@@ -273,6 +273,7 @@ typedef NSString * CMParagraphStyleAttributeName NS_EXTENSIBLE_STRING_ENUM;
 
 // Helper method for setting specific symbolic traits in fontAttributes
 - (void) setFontSymbolicTraits:(CMFontSymbolicTraits)fontSymbolicTraits;
+- (void) addCodeBlockLanguageAttributeFor:(NSString*)language;
 
 @end
 
@@ -292,5 +293,6 @@ extern CMParagraphStyleAttributeName const CMParagraphStyleAttributeHyphenationF
 extern CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemLabelIndent;
 extern CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemBulletString;
 extern CMParagraphStyleAttributeName const CMParagraphStyleAttributeListItemNumberFormat;
+extern CMParagraphStyleAttributeName const CMParagraphStyleAttributeCodeBlockLanguage;
 
 NS_ASSUME_NONNULL_END

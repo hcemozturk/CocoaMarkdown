@@ -236,7 +236,13 @@
 
 - (void)parser:(CMParser *)parser foundCodeBlock:(NSString *)code info:(NSString *)info
 {
-    [_attributeStack pushAttributes:_attributes.codeBlockAttributes];
+    CMStyleAttributes* styleAttributes = _attributes.codeBlockAttributes;
+    if (info != nil) {
+        [styleAttributes addCodeBlockLanguageAttributeFor:info];
+    }
+
+    [_attributeStack pushAttributes: styleAttributes];
+
     if ([code hasSuffix:@"\n"]) {
         code = [code substringToIndex:code.length - 1]; // Remove final "\n"
     }
